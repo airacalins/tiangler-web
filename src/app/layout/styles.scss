@@ -1,0 +1,266 @@
+$primary: #E85B81;
+$primaryButtonHover: #C1305D;
+$primaryButtonDisabled: #F3ADBF;
+$alternative: #5E48E8;
+$alternativeButtonHover: #5028C6;
+$alternativeButtonDisabled: #B5B5B5;
+$secondary: #B5B5B5;
+$secondaryButtonHover: #252525;
+$secondaryButtonDisabled: #B5B5B5;
+$ternary: #8CE0F3;
+$white: #FFFFFF;
+$grey-1: #F9F9F9;
+$grey-2: #E1E1E1;
+$grey-3: #B5B5B5;
+$grey-4: #505050;
+$grey-5: #252525;
+
+* {
+    margin: 0;
+}
+
+.background__color-- {
+    &primary {
+        background-color: $primary;
+    }
+
+    &secondary {
+        background-color: $secondary;
+    }
+
+    &alternative {
+        background-color: $alternative;
+    }
+}
+
+.display__ {
+    &row {
+        display: flex;
+    }
+
+    &center {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+button.btn.btn-primary.btn__ {
+    &primary {
+        background-color: $primary;
+        border: none;
+
+        &.disabled {
+            background-color: $primaryButtonDisabled;
+            border: none;
+        }
+
+        &:hover {
+            background: $primaryButtonHover;
+            border: none;
+        }
+    }
+
+    &alternative {
+        background-color: $alternative;
+        border: none;
+
+        &.disabled {
+            opacity: 0.3;
+            border: 1px solid $alternativeButtonDisabled;
+        }
+
+        &:hover {
+            background: $alternativeButtonHover;
+            border: none;
+        }
+    }
+
+    &secondary {
+        border: 1px solid $secondary;
+        background-color: $white;
+        color: $grey-5;
+
+        &.disabled {
+            border: 1px solid $secondaryButtonDisabled;
+            background-color: $white;
+            color: $secondaryButtonDisabled;
+        }
+
+        &:hover {
+            border: 1px solid $secondaryButtonHover;
+        }
+    }
+
+    &icon--grey3 {
+        background-color: $grey-3;
+        border: none;
+        padding: 0;
+        width: 48px;
+    }
+
+    border-radius: 8px;
+    height: 48px;
+    padding: 0px 60px;
+}
+
+
+.color__grey--3 {
+    color: $grey-3;
+}
+
+.font__weight-- {
+    &500 {
+        font-weight: 500;
+    }
+
+    &400 {
+        font-weight: 400;
+    }
+}
+
+.size__ {
+    &height-- {
+        &1 {
+            height: 10px;
+        }
+
+        &2 {
+            height: 20px;
+        }
+
+        &3 {
+            height: 30px;
+        }
+
+        &4 {
+            height: 40px;
+        }
+
+        &5 {
+            height: 50px;
+        }
+
+        &10 {
+            height: 100px;
+        }
+    }
+
+    &width-- {
+        &1 {
+            width: 10px;
+        }
+
+        &2 {
+            width: 20px;
+        }
+
+        &3 {
+            width: 30px;
+        }
+
+        &4 {
+            width: 40px;
+        }
+
+        &5 {
+            width: 50px;
+        }
+
+        &10 {
+            width: 100px;
+        }
+    }
+}
+
+.space__ {
+    &horizontal-- {
+        &1 {
+            width: 2px;
+        }
+
+        &2 {
+            width: 4px;
+        }
+
+        &3 {
+            width: 8px;
+        }
+
+        &4 {
+            width: 16px;
+        }
+
+        &5 {
+            width: 32px;
+        }
+
+        &6 {
+            width: 64px;
+        }
+    }
+
+    &vertical-- {
+        &1 {
+            height: 2px;
+        }
+
+        &2 {
+            height: 4px;
+        }
+
+        &3 {
+            height: 8px;
+        }
+
+        &4 {
+            height: 16px;
+        }
+
+        &5 {
+            height: 32px;
+        }
+    }
+}
+
+.text__ {
+    &header-- {
+        &1 {
+            font-size: 50px;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        &2 {
+            font-size: 38px;
+        }
+
+        &3 {
+            font-size: 28px;
+        }
+
+        &4 {
+            font-size: 21px;
+        }
+
+        &5 {
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+    }
+
+    &paragraph-- {
+        &default {
+            font-size: 16px;
+        }
+
+        &small {
+            font-size: 12px;
+        }
+    }
+
+    color: $grey-5;
+    margin: 0;
+}
