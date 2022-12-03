@@ -5,7 +5,7 @@ interface Props {
 }
 
 function Center({ children }: Props) {
-    return <div className="display__center">
+    return <div className="d-flex flex-column justify-content-center align-items-center vh-100">
         {children}
     </div>
 }

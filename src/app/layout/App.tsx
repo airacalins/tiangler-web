@@ -1,10 +1,8 @@
-import React from 'react';
-import LoginPage from '../../feature/account/LoginPage';
-import logo from './logo.svg';
+import AccountPage from '../../feature/account/AccountPage';
 
 function App() {
   return (
-    <LoginPage />
+    <AccountPage />
   );
 }
 

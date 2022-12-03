@@ -1,0 +1,14 @@
+export const ALREADY_HAVE_AN_ACCOUNT = "Already have an account?";
+export const APP_NAME = "Tiangler";
+export const CONFIRM_PASSWORD = "Confirm Password";
+export const DONT_HAVE_AN_ACCOUNT = "Don't have an account?";
+export const EMAIL_ADDRESS = "Email Address";
+export const EMPTY_STRING = "";
+export const FIRST_NAME = "First Name";
+export const LAST_NAME = "Last Name";
+export const LOGIN = "Login";
+export const LOGIN_YOUR_ACCOUNT = "Login your account";
+export const PASSWORD = "Password";
+export const REGISTER = "Register";
+export const REGISTER_YOUR_ACCOUNT = "Register your account";
+export const SIGN_UP = "Sign Up";

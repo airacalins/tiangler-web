@@ -5,13 +5,12 @@ interface Props {
     className?: string;
     onClick: () => void;
 }
-
-function AlternativeButton({ label, className, onClick }: Props) {
+function SecondaryButton({ label, className, onClick }: Props) {
     return <Button
         label={label}
-        className={`btn__alternative ${className ? className : ''}`}
+        className={`btn__secondary ${className ? className : ''}`}
         onClick={onClick}
     />
 }
 
-export default AlternativeButton;
+export default SecondaryButton;
