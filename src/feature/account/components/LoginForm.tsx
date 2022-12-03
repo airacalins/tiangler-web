@@ -7,9 +7,10 @@ import { CONFIRM_PASSWORD, EMAIL_ADDRESS, EMPTY_STRING, FIRST_NAME, LAST_NAME, L
 interface Props {
     currentPage: AccountPageType;
     onLogin: (account: ILoginAccount) => void;
+    onRegister: (account: IRegisterAccount) => void;
 }
 
-function LoginForm({ currentPage, onLogin }: Props) {
+function LoginForm({ currentPage, onLogin, onRegister }: Props) {
 
     const loginAccountInitialData: ILoginAccount = {
         email: EMPTY_STRING,
@@ -32,7 +33,7 @@ function LoginForm({ currentPage, onLogin }: Props) {
             <Col md={{ span: 6, offset: 3 }}>
                 <Form>
                     {
-                        currentPage == AccountPageType.REGISTER_PAGE &&
+                        currentPage === AccountPageType.REGISTER_PAGE &&
                         <>
                             <Form.Group className="mb-3">
                                 <Form.Text>{FIRST_NAME}</Form.Text>
@@ -60,7 +61,7 @@ function LoginForm({ currentPage, onLogin }: Props) {
                             name="email"
                             type="email"
                             onChange={evt => {
-                                currentPage == AccountPageType.LOGIN_PAGE
+                                currentPage === AccountPageType.LOGIN_PAGE
                                     ? setLoginAccount(prev => ({ ...prev, email: evt.target.value }))
                                     : setRegisterAccount(prev => ({ ...prev, email: evt.target.value }))
                             }}
@@ -73,7 +74,7 @@ function LoginForm({ currentPage, onLogin }: Props) {
                             name="password"
                             type="password"
                             onChange={evt => {
-                                currentPage == AccountPageType.REGISTER_PAGE
+                                currentPage === AccountPageType.LOGIN_PAGE
                                     ? setLoginAccount(prev => ({ ...prev, password: evt.target.value }))
                                     : setRegisterAccount(prev => ({ ...prev, password: evt.target.value }))
                             }}
@@ -81,21 +82,24 @@ function LoginForm({ currentPage, onLogin }: Props) {
                     </Form.Group>
 
                     {
-                        currentPage == AccountPageType.REGISTER_PAGE &&
+                        currentPage === AccountPageType.REGISTER_PAGE &&
                         <Form.Group className="mb-3">
                             <Form.Text>{CONFIRM_PASSWORD}</Form.Text>
                             <Form.Control
                                 name="confirmPassword"
-                                type="confirmPassword"
+                                type="password"
                                 onChange={evt => setRegisterAccount(prev => ({ ...prev, confirmPassword: evt.target.value }))}
                             />
                         </Form.Group>
                     }
 
                     <PrimaryButton
-                        label={currentPage == AccountPageType.LOGIN_PAGE ? LOGIN : REGISTER}
+                        label={currentPage === AccountPageType.LOGIN_PAGE ? LOGIN : REGISTER}
                         className="mt-3 w-100"
-                        onClick={() => onLogin(loginAccount)}
+                        onClick={() => currentPage === AccountPageType.LOGIN_PAGE
+                            ? onLogin(loginAccount)
+                            : onRegister(registerAccount)
+                        }
                     />
                 </Form >
             </Col>

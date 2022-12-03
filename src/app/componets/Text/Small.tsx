@@ -1,5 +1,3 @@
-import Paragraph from "./Paragraph";
-
 interface Props {
     text: string;
 }

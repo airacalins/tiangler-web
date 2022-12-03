@@ -1,5 +1,3 @@
-import { JsxElement } from "typescript";
-
 interface Props {
     children: any;
 }
