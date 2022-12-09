@@ -1,14 +1,34 @@
 export const ALREADY_HAVE_AN_ACCOUNT = "Already have an account?";
 export const APP_NAME = "Tiangler";
+export const CASH = "Cash";
 export const CONFIRM_PASSWORD = "Confirm Password";
+export const CREDIT = "Credit";
 export const DONT_HAVE_AN_ACCOUNT = "Don't have an account?";
 export const EMAIL_ADDRESS = "Email Address";
 export const EMPTY_STRING = "";
+export const EXPENSES = "Expenses";
 export const FIRST_NAME = "First Name";
+export const INVENTORY = "Inventory";
 export const LAST_NAME = "Last Name";
+export const LEDGER = "Ledger";
 export const LOGIN = "Login";
 export const LOGIN_YOUR_ACCOUNT = "Login your account";
+export const ORDERS = "Order";
 export const PASSWORD = "Password";
+export const PAYMENT = "Payment";
+export const POS = "POS";
+export const PRODUCTS = "Products";
+export const PURCHASES = "Purchases";
 export const REGISTER = "Register";
 export const REGISTER_YOUR_ACCOUNT = "Register your account";
 export const SIGN_UP = "Sign Up";
+
+// Navigation Constants
+export const HOME_PATH = "/"
+export const LEDGER_PATH = "/ledger";
+export const PRODUCT_PATH = "/product";
+export const POS_PATH = "/pos";
+export const ORDER_PATH = "/order";
+export const PURCHASE_PATH = "/purchase";
+export const EXPENSE_PATH = "/expense";
+export const INVENTORY_PATH = "/inventory";

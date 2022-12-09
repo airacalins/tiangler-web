@@ -17,12 +17,25 @@ function AccountPage() {
     const [accountPage, setAccountPage] = useState<AccountPageType>(AccountPageType.LOGIN_PAGE);
 
     const handleLogin = (account: ILoginAccount) => {
-        agent.Account.login(account);
-        agent.Account.currentUser().then(response => setCurrentLoginAccount(response as ICurrentLoggedInAccount));
+        agent.Account.login(account).then(response => {
+            localStorage.setItem('token', JSON.stringify(response.token));
+        });
+
+        agent.Account.currentUser()
+            .then(response => {
+                setCurrentLoginAccount(response as any);
+                console.log(currentLoginAccount)
+            })
+            ;
     }
 
     const handleRegister = (account: IRegisterAccount) => {
-        console.log(account)
+        if (account.password != account.confirmPassword) console.log('Password is not the same with confirm password.')
+        agent.Account.register(account)
+            .then(response => {
+                console.log(response);
+            })
+            .catch(err => console.log(err))
     }
 
     return <WholePageContainer children={
