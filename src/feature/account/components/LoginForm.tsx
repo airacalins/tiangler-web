@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import PrimaryButton from "../../../app/componets/Buttons/PrimaryButton";
 import { AccountPageType, ILoginAccount, IRegisterAccount } from "../../../app/types/IAccounts";
-import { CONFIRM_PASSWORD, EMAIL_ADDRESS, EMPTY_STRING, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, REGISTER } from "../../../app/utilities/stringsConstant";
+import { CONFIRM_PASSWORD, EMAIL_ADDRESS, EMAIL_INPUT_TYPE, EMPTY_STRING, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD, PASSWORD_INPUT_TYPE, REGISTER, TEXT_INPUT_TYPE } from "../../../app/utilities/stringsConstant";
 
 interface Props {
     currentPage: AccountPageType;
@@ -39,7 +39,7 @@ function LoginForm({ currentPage, onLogin, onRegister }: Props) {
                                 <Form.Text>{FIRST_NAME}</Form.Text>
                                 <Form.Control
                                     name="firstName"
-                                    type="text"
+                                    type={TEXT_INPUT_TYPE}
                                     onChange={evt => setRegisterAccount(prev => ({ ...prev, firstName: evt.target.value }))}
                                 />
                             </Form.Group>
@@ -48,7 +48,7 @@ function LoginForm({ currentPage, onLogin, onRegister }: Props) {
                                 <Form.Text>{LAST_NAME}</Form.Text>
                                 <Form.Control
                                     name="lastName"
-                                    type="text"
+                                    type={TEXT_INPUT_TYPE}
                                     onChange={evt => setRegisterAccount(prev => ({ ...prev, lastName: evt.target.value }))}
                                 />
                             </Form.Group>
@@ -59,7 +59,7 @@ function LoginForm({ currentPage, onLogin, onRegister }: Props) {
                         <Form.Text>{EMAIL_ADDRESS}</Form.Text>
                         <Form.Control
                             name="email"
-                            type="email"
+                            type={EMAIL_INPUT_TYPE}
                             onChange={evt => {
                                 currentPage === AccountPageType.LOGIN_PAGE
                                     ? setLoginAccount(prev => ({ ...prev, email: evt.target.value }))
@@ -72,7 +72,7 @@ function LoginForm({ currentPage, onLogin, onRegister }: Props) {
                         <Form.Text>{PASSWORD}</Form.Text>
                         <Form.Control
                             name="password"
-                            type="password"
+                            type={PASSWORD_INPUT_TYPE}
                             onChange={evt => {
                                 currentPage === AccountPageType.LOGIN_PAGE
                                     ? setLoginAccount(prev => ({ ...prev, password: evt.target.value }))
@@ -87,7 +87,7 @@ function LoginForm({ currentPage, onLogin, onRegister }: Props) {
                             <Form.Text>{CONFIRM_PASSWORD}</Form.Text>
                             <Form.Control
                                 name="confirmPassword"
-                                type="password"
+                                type={PASSWORD_INPUT_TYPE}
                                 onChange={evt => setRegisterAccount(prev => ({ ...prev, confirmPassword: evt.target.value }))}
                             />
                         </Form.Group>

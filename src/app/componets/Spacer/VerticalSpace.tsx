@@ -1,8 +1,8 @@
 interface Props {
-    height: number,
+    height: 1 | 2 | 3 | 4 | 5,
 }
 
-function VerticalSpace({ height } : Props){
+function VerticalSpace({ height }: Props) {
     return <div className={`space__vertical--${height}`}></div>
 }
 

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import agent from "../../app/api/agent";
 import SecondaryButton from "../../app/componets/Buttons/SecondaryButton";
 import Center from "../../app/componets/Container/Center";
@@ -9,12 +10,22 @@ import Header1 from "../../app/componets/Text/Header1";
 import Header5 from "../../app/componets/Text/Header5";
 import Paragraph from "../../app/componets/Text/Paragraph";
 import { AccountPageType, ICurrentLoggedInAccount, ILoginAccount, IRegisterAccount } from "../../app/types/IAccounts";
-import { ALREADY_HAVE_AN_ACCOUNT, APP_NAME, DONT_HAVE_AN_ACCOUNT, LOGIN, LOGIN_YOUR_ACCOUNT, REGISTER_YOUR_ACCOUNT, SIGN_UP } from "../../app/utilities/stringsConstant";
+import { ALREADY_HAVE_AN_ACCOUNT, APP_NAME, DONT_HAVE_AN_ACCOUNT, LOGIN, LOGIN_PATH, LOGIN_YOUR_ACCOUNT, REGISTER_PATH, REGISTER_YOUR_ACCOUNT, SIGN_UP } from "../../app/utilities/stringsConstant";
 import LoginForm from "./components/LoginForm";
 
-function AccountPage() {
+interface Props {
+    accountPageType: AccountPageType
+}
+
+function AccountPage({ accountPageType }: Props) {
     const [currentLoginAccount, setCurrentLoginAccount] = useState<ICurrentLoggedInAccount>();
     const [accountPage, setAccountPage] = useState<AccountPageType>(AccountPageType.LOGIN_PAGE);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        setAccountPage(accountPageType);
+    }, [])
 
     const handleLogin = (account: ILoginAccount) => {
         agent.Account.login(account).then(response => {
@@ -45,7 +56,10 @@ function AccountPage() {
                 <HorizontalSpace width={4} />
                 <SecondaryButton
                     label={(accountPage === AccountPageType.LOGIN_PAGE) ? SIGN_UP : LOGIN}
-                    onClick={() => setAccountPage((accountPage === AccountPageType.LOGIN_PAGE) ? AccountPageType.REGISTER_PAGE : AccountPageType.LOGIN_PAGE)}
+                    onClick={() => {
+                        navigate(accountPage === AccountPageType.LOGIN_PAGE ? REGISTER_PATH : LOGIN_PATH)
+                        return setAccountPage((accountPage === AccountPageType.LOGIN_PAGE) ? AccountPageType.REGISTER_PAGE : AccountPageType.LOGIN_PAGE);
+                    }}
                 />
             </div>
 

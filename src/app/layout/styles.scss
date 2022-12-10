@@ -1,10 +1,10 @@
 // Colors
 $primary: #252525;
-$primaryButtonHover: #505050;
-$primaryButtonDisabled: #F9F9F9;
+$primaryHover: #505050;
+$primaryDisabled: #F9F9F9;
 $secondary: #B5B5B5;
-$secondaryButtonHover: #252525;
-$secondaryButtonDisabled: #B5B5B5;
+$secondaryHover: #252525;
+$secondaryDisabled: #B5B5B5;
 $white: #FFFFFF;
 $grey-1: #F9F9F9;
 $grey-2: #E1E1E1;
@@ -17,6 +17,7 @@ $size-2: 2px;
 $size-4: 4px;
 $size-8: 8px;
 $size-16: 16px;
+$size-24: 24px;
 $size-32: 32px;
 $size-48: 48px;
 $size-64: 64px;
@@ -25,13 +26,44 @@ $size-64: 64px;
     margin: 0;
 }
 
-.background__color-- {
+a.nav-link {
+    color: $primary;
+
+    &.active {
+        background-color: $white;
+        border: 1px solid $primary;
+        border-radius: $size-4;
+        font-weight: 600;
+    }
+
+    &:hover {
+        color: $primaryHover;
+        font-weight: 600;
+    }
+
+    font-family: 'Quicksand',
+    sans-serif;
+
+    font-weight: 400;
+    font-size: $size-16;
+    letter-spacing: 0.5px;
+}
+
+.bg__color-- {
     &primary {
         background-color: $primary;
     }
 
     &secondary {
         background-color: $secondary;
+    }
+
+    &white {
+        background-color: $white;
+    }
+
+    &grey1 {
+        background-color: $grey-1;
     }
 }
 
@@ -57,12 +89,12 @@ button.btn.btn-primary.btn__ {
         height: $size-48;
 
         &.disabled {
-            background-color: $primaryButtonDisabled;
+            background-color: $primaryDisabled;
             border: none;
         }
 
         &:hover {
-            background: $primaryButtonHover;
+            background: $primaryHover;
             border: none;
         }
     }
@@ -73,13 +105,13 @@ button.btn.btn-primary.btn__ {
         color: $grey-5;
 
         &.disabled {
-            border: 1px solid $secondaryButtonDisabled;
+            border: 1px solid $secondaryDisabled;
             background-color: $white;
-            color: $secondaryButtonDisabled;
+            color: $secondaryDisabled;
         }
 
         &:hover {
-            border: 1px solid $secondaryButtonHover;
+            border: 1px solid $secondaryHover;
         }
     }
 
@@ -253,10 +285,20 @@ input.form-control:focus {
 
         &small {
             font-size: 12px;
+            color: $grey-4;
         }
 
     }
 
+    font-family: 'Quicksand',
+    sans-serif;
+
     color: $grey-5;
     margin: 0;
+    letter-spacing: 0.5px;
+}
+
+table thead th {
+    font-size: 12px;
+    color: $grey-4;
 }

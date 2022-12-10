@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import AccountPage from '../../feature/account/AccountPage';
 import DashboardPage from '../../feature/dashboard/DashboardPage';
 import ExpensePage from '../../feature/expense/ExpensePage';
 import InventoryPage from '../../feature/inventory/InventoryPage';
@@ -7,11 +8,14 @@ import OrderPage from '../../feature/order/OrderPage';
 import PosPage from '../../feature/pos/PosPage';
 import ProductPage from '../../feature/product/ProductPage';
 import PurchasePage from '../../feature/purchase/PurchasePage';
-import { EXPENSE_PATH, HOME_PATH, INVENTORY_PATH, LEDGER_PATH, ORDER_PATH, POS_PATH, PRODUCT_PATH, PURCHASE_PATH } from '../utilities/stringsConstant';
+import { AccountPageType } from '../types/IAccounts';
+import { EXPENSE_PATH, HOME_PATH, INVENTORY_PATH, LEDGER_PATH, LOGIN_PATH, ORDER_PATH, POS_PATH, PRODUCT_PATH, PURCHASE_PATH, REGISTER_PATH } from '../utilities/stringsConstant';
 
 function App() {
   return (
     <Routes>
+      <Route path={LOGIN_PATH} element={<AccountPage accountPageType={AccountPageType.LOGIN_PAGE} />} />
+      <Route path={REGISTER_PATH} element={<AccountPage accountPageType={AccountPageType.REGISTER_PAGE} />} />
       <Route path={HOME_PATH} element={<DashboardPage />} />
       <Route path={PRODUCT_PATH} element={<ProductPage />} />
       <Route path={LEDGER_PATH} element={<LedgerPage />} />

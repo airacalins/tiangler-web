@@ -1,7 +1,6 @@
-import { Nav } from "react-bootstrap";
+import { Container, Nav } from "react-bootstrap";
+import Navbar from 'react-bootstrap/Navbar';
 import { CASH, CREDIT, EXPENSES, EXPENSE_PATH, HOME_PATH, INVENTORY, INVENTORY_PATH, LEDGER, LEDGER_PATH, ORDERS, ORDER_PATH, PAYMENT, POS, POS_PATH, PRODUCTS, PRODUCT_PATH, PURCHASES, PURCHASE_PATH } from "../../utilities/stringsConstant";
-
-
 
 function SideNav() {
     const navLinks = [
@@ -20,16 +19,19 @@ function SideNav() {
         { id: 3, title: PAYMENT }
     ]
 
-    return <Nav defaultActiveKey={HOME_PATH} className="flex-column">
-        {navLinks.map(({ id, title, href }) =>
-            <Nav.Link
-                key={id}
-                href={href}
-            >
-                {title}
-            </Nav.Link>
-        )}
-    </Nav>
+    return <Navbar>
+        <Nav defaultActiveKey={HOME_PATH} className="flex-column w-100">
+            {navLinks.map(({ id, href, title }) =>
+                <Nav.Link
+                    key={id}
+                    href={href}
+                    className="m-3"
+                >
+                    {title}
+                </Nav.Link>
+            )}
+        </Nav>
+    </Navbar>
 }
 
 export default SideNav;
