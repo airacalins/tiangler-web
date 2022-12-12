@@ -37,7 +37,7 @@ function SideNav() {
     }
 
     const isActive = (path: string) => {
-        return location.pathname === path;
+        return path === HOME_PATH ? location.pathname === path : location.pathname.includes(path);
     }
 
     return <Navbar>

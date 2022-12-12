@@ -5,7 +5,11 @@ import VerticalSpace from "../../../app/componets/Spacer/VerticalSpace";
 import Small from "../../../app/componets/Text/Small";
 import { ACTIONS, COST, GROUP, IMAGE, LOW_STOCK_LEVEL, NAME, PRICE, STOCKS } from "../../../app/utilities/stringsConstant";
 
-function ProductTable() {
+interface Props {
+    onOpenForm: () => void;
+}
+
+function ProductTable({ onOpenForm }: Props) {
 
     const productTableTitles = [
         IMAGE,
@@ -22,7 +26,7 @@ function ProductTable() {
         <div className="d-flex align-items-center">
             <SecondaryButton
                 label={"+"}
-                onClick={() => { }}
+                onClick={onOpenForm}
             />
             <HorizontalSpace width={3} />
             <Small text={"25 items"} />

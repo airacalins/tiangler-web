@@ -35,6 +35,7 @@ export const STOCKS = "Stocks";
 export const SUBMIT = "Submit";
 
 // Navigation Constants
+export const CREATE_PATH = "/create"
 export const CASH_LEDGER_PATH = "/cash-ledger";
 export const CREDIT_LEDGER_PATH = "/credit-ledger";
 export const HOME_PATH = "/"
@@ -48,6 +49,7 @@ export const POS_PATH = "/pos";
 export const PRODUCT_PATH = "/product";
 export const PURCHASE_PATH = "/purchase";
 export const REGISTER_PATH = "/register";
+
 
 // Form Input Type
 export const EMAIL_INPUT_TYPE = "email";
