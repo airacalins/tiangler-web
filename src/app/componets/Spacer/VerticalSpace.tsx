@@ -2,7 +2,7 @@ interface Props {
     height: 1 | 2 | 3 | 4 | 5,
 }
 
-function VerticalSpace({ height }: Props) {
+const VerticalSpace = ({ height }: Props) => {
     return <div className={`space__vertical--${height}`}></div>
 }
 

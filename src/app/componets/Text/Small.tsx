@@ -3,7 +3,7 @@ interface Props {
     className?: string,
 }
 
-function Small({ text, className }: Props) {
+const Small = ({ text, className }: Props) => {
     return <p className={`text__paragraph--small font__weight-400 m-0 ${className}`}>{text}</p >
 }
 

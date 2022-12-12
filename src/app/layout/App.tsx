@@ -12,7 +12,7 @@ import PurchasePage from '../../feature/purchase/PurchasePage';
 import { AccountPageType } from '../types/IAccounts';
 import { CREATE_PATH, EXPENSE_PATH, HOME_PATH, INVENTORY_PATH, LEDGER_PATH, LOGIN_PATH, ORDER_PATH, POS_PATH, PRODUCT_PATH, PURCHASE_PATH, REGISTER_PATH } from '../utilities/stringsConstant';
 
-function App() {
+const App = () => {
   return (
     <Routes>
       <Route path={LOGIN_PATH} element={<AccountPage accountPageType={AccountPageType.LOGIN_PAGE} />} />

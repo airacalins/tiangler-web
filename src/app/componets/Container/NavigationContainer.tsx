@@ -9,7 +9,7 @@ interface Props {
     contents: ReactNode;
 }
 
-function NavigationContainer({ title, contents }: Props) {
+const NavigationContainer = ({ title, contents }: Props) => {
     return <div className="vh-100">
         <div className="d-flex align-items-center bg__color--primary px-3" style={{ height: 60 }}>
             <p className="app-name-styles m-0">{APP_NAME}</p>

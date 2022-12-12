@@ -9,7 +9,7 @@ interface NavLink {
     subItems?: Array<{ title: string; path: string; }>;
 }
 
-function SideNav() {
+const SideNav = () => {
     const location = useLocation();
     const navigate = useNavigate();
 

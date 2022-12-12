@@ -9,7 +9,7 @@ interface Props {
     onOpenForm: () => void;
 }
 
-function ProductTable({ onOpenForm }: Props) {
+const ProductTable = ({ onOpenForm }: Props) => {
 
     const productTableTitles = [
         IMAGE,

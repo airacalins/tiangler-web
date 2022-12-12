@@ -3,7 +3,7 @@ import PrimaryButton from "../../../app/componets/Buttons/PrimaryButton";
 import HorizontalSpace from "../../../app/componets/Spacer/HorizontalSpace";
 import { TEXT_INPUT_TYPE, SUBMIT, NAME, PRICE, COST, STOCKS, LOW_STOCK_LEVEL } from "../../../app/utilities/stringsConstant";
 
-function ProductForm() {
+const ProductForm = () => {
     return <Row className="my-5">
         <Col md={{ span: 6, offset: 3 }}>
             <Form>

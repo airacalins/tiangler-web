@@ -6,7 +6,7 @@ interface Props {
     onClick: () => void;
 }
 
-function Button({ label, className, onClick }: Props) {
+const Button = ({ label, className, onClick }: Props) => {
     return <BSButton className={className} onClick={onClick} >
         {label}
     </BSButton>

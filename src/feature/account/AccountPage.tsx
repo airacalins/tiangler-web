@@ -17,7 +17,7 @@ interface Props {
     accountPageType: AccountPageType
 }
 
-function AccountPage({ accountPageType }: Props) {
+const AccountPage = ({ accountPageType }: Props) => {
     const [currentLoginAccount, setCurrentLoginAccount] = useState<ICurrentLoggedInAccount>();
     const [accountPage, setAccountPage] = useState<AccountPageType>(AccountPageType.LOGIN_PAGE);
 

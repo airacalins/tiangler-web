@@ -2,7 +2,7 @@ interface Props {
     children: any;
 }
 
-function Center({ children }: Props) {
+const Center = ({ children }: Props) => {
     return <div className="d-flex flex-column justify-content-center align-items-center vh-100">
         {children}
     </div>

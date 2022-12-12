@@ -3,7 +3,7 @@ interface Props {
     className?: string | null;
 }
 
-function Paragraph({ text, className }: Props) {
+const Paragraph = ({ text, className }: Props) => {
     return <p className={`text__paragraph-default font__weight-400 mb-0 ${className}`}>{text}</p >
 }
 

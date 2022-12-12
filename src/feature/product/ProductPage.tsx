@@ -1,9 +1,9 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NavigationContainer from "../../app/componets/Container/NavigationContainer";
 import { CREATE_PATH, PRODUCTS, PRODUCT_PATH } from "../../app/utilities/stringsConstant";
 import ProductTable from "./components/ProductTable";
 
-function ProductPage() {
+const ProductPage = () => {
     const navigate = useNavigate();
 
     const handleCreateProductFormNavigation = () => {

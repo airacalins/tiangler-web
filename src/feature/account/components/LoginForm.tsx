@@ -10,7 +10,7 @@ interface Props {
     onRegister: (account: IRegisterAccount) => void;
 }
 
-function LoginForm({ currentPage, onLogin, onRegister }: Props) {
+const LoginForm = ({ currentPage, onLogin, onRegister }: Props) => {
 
     const loginAccountInitialData: ILoginAccount = {
         email: EMPTY_STRING,

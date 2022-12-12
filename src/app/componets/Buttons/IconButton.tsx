@@ -6,9 +6,9 @@ interface Props {
     onClick: () => void,
 }
 
-function IconButton({ color, icon, onClick } : Props){
+const IconButton = ({ color, icon, onClick }: Props) => {
     return <Button onClick={() => onClick()} className={`btn__icon--${color}`}>
-       {icon}
+        {icon}
     </Button>
 }
 

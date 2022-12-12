@@ -4,7 +4,7 @@ interface Props {
     text: string;
 }
 
-function Header2({ text }: Props) {
+const Header2 = ({ text }: Props) => {
     return <Header text={text} className="text__header--2 font__weight--500" />
 }
 
