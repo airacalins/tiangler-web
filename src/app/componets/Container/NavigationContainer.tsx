@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { EMPTY_STRING } from "../../utilities/stringsConstant";
+import { APP_NAME } from "../../utilities/stringsConstant";
 import SideNav from "../SideNav/SideNav";
 import VerticalSpace from "../Spacer/VerticalSpace";
 import Header2 from "../Text/Header2";
@@ -11,7 +11,8 @@ interface Props {
 
 function NavigationContainer({ title, contents }: Props) {
     return <div className="vh-100">
-        <div className="bg__color--primary" style={{ height: 60 }}>
+        <div className="d-flex align-items-center bg__color--primary px-3" style={{ height: 60 }}>
+            <p className="app-name-styles m-0">{APP_NAME}</p>
         </div>
 
         <div className="d-flex">

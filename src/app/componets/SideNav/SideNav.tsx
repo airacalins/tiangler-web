@@ -1,33 +1,58 @@
-import { Container, Nav } from "react-bootstrap";
+import { Nav } from "react-bootstrap";
 import Navbar from 'react-bootstrap/Navbar';
-import { CASH, CREDIT, EXPENSES, EXPENSE_PATH, HOME_PATH, INVENTORY, INVENTORY_PATH, LEDGER, LEDGER_PATH, ORDERS, ORDER_PATH, PAYMENT, POS, POS_PATH, PRODUCTS, PRODUCT_PATH, PURCHASES, PURCHASE_PATH } from "../../utilities/stringsConstant";
+import { useLocation, useNavigate } from "react-router-dom";
+import { CASH, CASH_LEDGER_PATH, CREDIT, CREDIT_LEDGER_PATH, DASHBOARD, EXPENSES, EXPENSE_PATH, HOME_PATH, INVENTORY, INVENTORY_PATH, LEDGER, LEDGER_PATH, ORDERS, ORDER_PATH, PAYMENT, PAYMENT_LEDGER_PATH, POS, POS_PATH, PRODUCTS, PRODUCT_PATH, PURCHASES, PURCHASE_PATH } from "../../utilities/stringsConstant";
+
+interface NavLink {
+    title: string;
+    path: string;
+    subItems?: Array<{ title: string; path: string; }>;
+}
 
 function SideNav() {
-    const navLinks = [
-        { id: 1, title: LEDGER, href: LEDGER_PATH },
-        { id: 2, title: PRODUCTS, href: PRODUCT_PATH },
-        { id: 3, title: POS, href: POS_PATH },
-        { id: 4, title: ORDERS, href: ORDER_PATH },
-        { id: 5, title: PURCHASES, href: PURCHASE_PATH },
-        { id: 6, title: EXPENSES, href: EXPENSE_PATH },
-        { id: 7, title: INVENTORY, href: INVENTORY_PATH },
-    ]
+    const location = useLocation();
+    const navigate = useNavigate();
 
-    const ledgerSubLinks = [
-        { id: 1, title: CASH },
-        { id: 2, title: CREDIT },
-        { id: 3, title: PAYMENT }
-    ]
+    const navLinks: Array<NavLink> = [
+        { title: DASHBOARD, path: HOME_PATH },
+        {
+            title: LEDGER,
+            path: LEDGER_PATH,
+            subItems: [
+                { title: CASH, path: CASH_LEDGER_PATH },
+                { title: CREDIT, path: CREDIT_LEDGER_PATH },
+                { title: PAYMENT, path: PAYMENT_LEDGER_PATH }
+            ],
+        },
+        { title: PRODUCTS, path: PRODUCT_PATH },
+        { title: POS, path: POS_PATH },
+        { title: ORDERS, path: ORDER_PATH },
+        { title: PURCHASES, path: PURCHASE_PATH },
+        { title: EXPENSES, path: EXPENSE_PATH },
+        { title: INVENTORY, path: INVENTORY_PATH },
+    ];
+
+    const handleNavigation = (index: number) => {
+        navigate(navLinks[index].path);
+    }
+
+    const isActive = (path: string) => {
+        return location.pathname === path;
+    }
 
     return <Navbar>
         <Nav defaultActiveKey={HOME_PATH} className="flex-column w-100">
-            {navLinks.map(({ id, href, title }) =>
+            {navLinks.map((item, index) =>
                 <Nav.Link
-                    key={id}
-                    href={href}
-                    className="m-3"
+                    key={index}
+                    className={isActive(item.path) ? "m-3 active" : "m-3"}
                 >
-                    {title}
+                    {/*
+                        TODO: Handle sublinks
+                    */}
+                    <div onClick={() => handleNavigation(index)} >
+                        {item.title}
+                    </div>
                 </Nav.Link>
             )}
         </Nav>
