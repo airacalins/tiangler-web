@@ -1,8 +1,8 @@
 import Table from "react-bootstrap/esm/Table";
-import SecondaryButton from "../../../app/componets/Buttons/SecondaryButton";
-import HorizontalSpace from "../../../app/componets/Spacer/HorizontalSpace";
-import VerticalSpace from "../../../app/componets/Spacer/VerticalSpace";
-import Small from "../../../app/componets/Text/Small";
+import SecondaryButton from "../../../app/components/buttons/SecondaryButton";
+import HorizontalSpace from "../../../app/components/spacer/HorizontalSpace";
+import VerticalSpace from "../../../app/components/spacer/VerticalSpace";
+import Small from "../../../app/components/text/Small";
 import { ACTIONS, COST, GROUP, IMAGE, LOW_STOCK_LEVEL, NAME, PRICE, STOCKS } from "../../../app/utilities/stringsConstant";
 
 interface Props {

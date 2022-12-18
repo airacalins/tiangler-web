@@ -1,6 +1,6 @@
-import Center from "../../app/componets/Container/Center";
-import NavigationContainer from "../../app/componets/Container/NavigationContainer";
-import Header5 from "../../app/componets/Text/Header5";
+import Center from "../../app/components/container/Center";
+import NavigationContainer from "../../app/components/container/NavigationContainer";
+import Header5 from "../../app/components/text/Header5";
 
 const ExpensePage = () => {
     return <NavigationContainer

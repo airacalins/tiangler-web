@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import { APP_NAME } from "../../utilities/stringsConstant";
-import SideNav from "../SideNav/SideNav";
-import VerticalSpace from "../Spacer/VerticalSpace";
-import Header2 from "../Text/Header2";
+import SideNav from "../sideNav/SideNav";
+import VerticalSpace from "../spacer/VerticalSpace";
+import Header2 from "../text/Header2";
 
 interface Props {
     title?: string

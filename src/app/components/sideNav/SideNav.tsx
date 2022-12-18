@@ -1,7 +1,7 @@
 import { Nav } from "react-bootstrap";
 import Navbar from 'react-bootstrap/Navbar';
 import { useLocation, useNavigate } from "react-router-dom";
-import { CASH, CASH_LEDGER_PATH, CREDIT, CREDIT_LEDGER_PATH, DASHBOARD, EXPENSES, EXPENSE_PATH, HOME_PATH, INVENTORY, INVENTORY_PATH, LEDGER, LEDGER_PATH, ORDERS, ORDER_PATH, PAYMENT, PAYMENT_LEDGER_PATH, POS, POS_PATH, PRODUCTS, PRODUCT_PATH, PURCHASES, PURCHASE_PATH } from "../../utilities/stringsConstant";
+import { CASH, CASH_PATH, CREDIT, CREDIT_PATH, DASHBOARD, EXPENSES, EXPENSE_PATH, HOME_PATH, INVENTORY, INVENTORY_PATH, LEDGER, LEDGER_PATH, ORDERS, ORDER_PATH, PAYMENT, PAYMENT_PATH, POS, POS_PATH, PRODUCTS, PRODUCT_PATH, PURCHASES, PURCHASE_PATH } from "../../utilities/stringsConstant";
 
 interface NavLink {
     title: string;
@@ -19,9 +19,9 @@ const SideNav = () => {
             title: LEDGER,
             path: LEDGER_PATH,
             subItems: [
-                { title: CASH, path: CASH_LEDGER_PATH },
-                { title: CREDIT, path: CREDIT_LEDGER_PATH },
-                { title: PAYMENT, path: PAYMENT_LEDGER_PATH }
+                { title: CASH, path: CASH_PATH },
+                { title: CREDIT, path: CREDIT_PATH },
+                { title: PAYMENT, path: PAYMENT_PATH }
             ],
         },
         { title: PRODUCTS, path: PRODUCT_PATH },

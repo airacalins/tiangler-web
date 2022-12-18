@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import NavigationContainer from "../../app/componets/Container/NavigationContainer";
+import NavigationContainer from "../../app/components/container/NavigationContainer";
 import { CREATE_PATH, PRODUCTS, PRODUCT_PATH } from "../../app/utilities/stringsConstant";
 import ProductTable from "./components/ProductTable";
 

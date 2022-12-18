@@ -1,6 +1,6 @@
 import { Row, Col, Form } from "react-bootstrap";
-import PrimaryButton from "../../../app/componets/Buttons/PrimaryButton";
-import HorizontalSpace from "../../../app/componets/Spacer/HorizontalSpace";
+import PrimaryButton from "../../../app/components/buttons/PrimaryButton";
+import HorizontalSpace from "../../../app/components/spacer/HorizontalSpace";
 import { TEXT_INPUT_TYPE, SUBMIT, NAME, PRICE, COST, STOCKS, LOW_STOCK_LEVEL } from "../../../app/utilities/stringsConstant";
 
 const ProductForm = () => {

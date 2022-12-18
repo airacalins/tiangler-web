@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import agent from "../../app/api/agent";
-import SecondaryButton from "../../app/componets/Buttons/SecondaryButton";
-import Center from "../../app/componets/Container/Center";
-import WholePageContainer from "../../app/componets/Container/WholePageContainer";
-import HorizontalSpace from "../../app/componets/Spacer/HorizontalSpace";
-import VerticalSpace from "../../app/componets/Spacer/VerticalSpace";
-import Header1 from "../../app/componets/Text/Header1";
-import Header5 from "../../app/componets/Text/Header5";
-import Paragraph from "../../app/componets/Text/Paragraph";
+import SecondaryButton from "../../app/components/buttons/SecondaryButton";
+import Center from "../../app/components/container/Center";
+import WholePageContainer from "../../app/components/container/WholePageContainer";
+import HorizontalSpace from "../../app/components/spacer/HorizontalSpace";
+import VerticalSpace from "../../app/components/spacer/VerticalSpace";
+import Header1 from "../../app/components/text/Header1";
+import Header5 from "../../app/components/text/Header5";
+import Paragraph from "../../app/components/text/Paragraph";
 import { AccountPageType, ICurrentLoggedInAccount, ILoginAccount, IRegisterAccount } from "../../app/types/IAccounts";
-import { ALREADY_HAVE_AN_ACCOUNT, APP_NAME, DONT_HAVE_AN_ACCOUNT, LOGIN, LOGIN_PATH, LOGIN_YOUR_ACCOUNT, REGISTER_PATH, REGISTER_YOUR_ACCOUNT, SIGN_UP } from "../../app/utilities/stringsConstant";
+import { ALREADY_HAVE_AN_ACCOUNT, APP_NAME, DONT_HAVE_AN_ACCOUNT, HOME_PATH, LOGIN, LOGIN_PATH, LOGIN_YOUR_ACCOUNT, REGISTER_PATH, REGISTER_YOUR_ACCOUNT, SIGN_UP } from "../../app/utilities/stringsConstant";
 import LoginForm from "./components/LoginForm";
 
 interface Props {
@@ -27,17 +27,16 @@ const AccountPage = ({ accountPageType }: Props) => {
         setAccountPage(accountPageType);
     }, [])
 
-    const handleLogin = (account: ILoginAccount) => {
-        agent.Account.login(account).then(response => {
-            localStorage.setItem('token', JSON.stringify(response.token));
+    const handleLogin = async (account: ILoginAccount) => {
+        await agent.Account.login(account).then(response => {
+            localStorage.setItem('token', response.token);
         });
 
-        agent.Account.currentUser()
+        await agent.Account.currentUser()
             .then(response => {
                 setCurrentLoginAccount(response as any);
-                console.log(currentLoginAccount)
-            })
-            ;
+                navigate(HOME_PATH);
+            }).catch(err => console.log(err));
     }
 
     const handleRegister = (account: IRegisterAccount) => {

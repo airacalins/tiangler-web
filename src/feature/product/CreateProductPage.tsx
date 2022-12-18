@@ -1,4 +1,4 @@
-import NavigationContainer from "../../app/componets/Container/NavigationContainer";
+import NavigationContainer from "../../app/components/container/NavigationContainer";
 import { ADD_PRODUCT } from "../../app/utilities/stringsConstant";
 import ProductForm from "./components/ProductForm";
 

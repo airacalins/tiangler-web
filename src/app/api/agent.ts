@@ -1,13 +1,13 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 import { ICurrentLoggedInAccount, ILoginAccount, IRegisterAccount } from "../types/IAccounts";
+import { ACCOUNTS_PATH, BASE_URL, BEARER, CURRENT_USER_PATH, EMPTY_STRING, LOGIN_PATH, REGISTER_PATH, SERVER_ERROR, TOKEN, UNAUTHORIZED } from "../utilities/stringsConstant";
 
-axios.defaults.baseURL = 'https://localhost:5000/api/';
-const accountUrl = 'accounts'
+axios.defaults.baseURL = BASE_URL;
 
 axios.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token');
-    if (token) config.headers!.Authorization = `Bearer ${token}`;
+    const token = localStorage.getItem(TOKEN);
+    if (token) config.headers!.Authorization = `${BEARER} ${token}`;
     return config;
 });
 
@@ -37,12 +37,12 @@ axios.interceptors.response.use(
                 break;
 
             case 401:
-                localStorage.setItem('token', '');
-                toast.error(data.title || 'Unauthorized');
+                localStorage.setItem(TOKEN, EMPTY_STRING);
+                toast.error(data.title || UNAUTHORIZED);
                 break;
 
             case 500:
-                toast.error('Server error');
+                toast.error(SERVER_ERROR);
                 break;
 
             default:
@@ -62,9 +62,9 @@ const requests = {
 }
 
 const Account = {
-    login: (account: ILoginAccount) => requests.post<ICurrentLoggedInAccount>(`${accountUrl}/login`, account),
-    register: (account: IRegisterAccount) => requests.post<void>(`${accountUrl}/register`, account),
-    currentUser: <ICurrentLoggedInAccount>() => requests.get<ICurrentLoggedInAccount>(`${accountUrl}/currentUser`),
+    login: (account: ILoginAccount) => requests.post<ICurrentLoggedInAccount>(`${ACCOUNTS_PATH}${LOGIN_PATH}`, account),
+    register: (account: IRegisterAccount) => requests.post<void>(`${ACCOUNTS_PATH}${REGISTER_PATH}`, account),
+    currentUser: <ICurrentLoggedInAccount>() => requests.get<ICurrentLoggedInAccount>(`${ACCOUNTS_PATH}${CURRENT_USER_PATH}`),
 }
 
 const agent = {
