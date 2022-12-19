@@ -3,6 +3,11 @@ import { APP_NAME } from "../../utilities/stringsConstant";
 import SideNav from "../sideNav/SideNav";
 import VerticalSpace from "../spacer/VerticalSpace";
 import Header2 from "../text/Header2";
+import { Image } from "react-bootstrap";
+import { BoxArrowRight } from "react-bootstrap-icons";
+import HorizontalSpace from "../spacer/HorizontalSpace";
+
+
 
 interface Props {
     title?: string
@@ -11,8 +16,17 @@ interface Props {
 
 const NavigationContainer = ({ title, contents }: Props) => {
     return <div className="vh-100">
-        <div className="d-flex align-items-center bg__color--primary px-3" style={{ height: 60 }}>
+        <div className="d-flex align-items-center justify-content-between bg__color--primary px-3" style={{ height: 64 }}>
             <p className="app-name-styles m-0">{APP_NAME}</p>
+            <div className="d-flex align-items-center">
+                <Image
+                    thumbnail
+                    roundedCircle src="https://images.pexels.com/photos/7705119/pexels-photo-7705119.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    style={{ height: 24, width: 24 }}
+                />
+                <HorizontalSpace width={4} />
+                <BoxArrowRight className="color__white" size={24} />
+            </div>
         </div>
 
         <div className="d-flex">
@@ -32,7 +46,7 @@ const NavigationContainer = ({ title, contents }: Props) => {
                     {contents}
                 </div>
             </div>
-        </div></div>
+        </div></div >
 }
 
 export default NavigationContainer;

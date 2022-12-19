@@ -133,8 +133,14 @@ input.form-control:focus {
 }
 
 
-.color__grey--3 {
-    color: $grey-3;
+.color__ {
+    &grey--3 {
+        color: $grey-3;
+    }
+
+    &white {
+        color: $white;
+    }
 }
 
 .font__weight-- {
