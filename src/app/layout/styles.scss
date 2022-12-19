@@ -210,27 +210,27 @@ input.form-control:focus {
 .space__ {
     &horizontal-- {
         &1 {
-            width: 2px;
+            width: $size-2;
         }
 
         &2 {
-            width: 4px;
+            width: $size-4;
         }
 
         &3 {
-            width: 8px;
+            width: $size-8;
         }
 
         &4 {
-            width: 16px;
+            width: $size-16;
         }
 
         &5 {
-            width: 32px;
+            width: $size-32;
         }
 
         &6 {
-            width: 64px;
+            width: $size-64;
         }
     }
 
