@@ -6,12 +6,12 @@ interface Props {
     onClick: () => void;
 }
 
-const SecondaryButton = ({ label, className, onClick }: Props) => {
-    return <Button
+const SecondaryButton = ({ label, className, onClick }: Props) => (
+    <Button
         label={label}
         className={`btn__secondary ${className ? className : ''}`}
         onClick={onClick}
     />
-}
+)
 
 export default SecondaryButton;
